@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PictureOfTheDay</string>
+    <string name="photo_of_the_day_stub">photo_of_the_day_stub</string>
 </resources>
