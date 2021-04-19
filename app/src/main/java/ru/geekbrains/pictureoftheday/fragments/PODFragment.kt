@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.api.load
-import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.pod_fragment.*
 import ru.geekbrains.pictureoftheday.R
 import ru.geekbrains.pictureoftheday.network.data.PODData
 import ru.geekbrains.pictureoftheday.viewmodels.PODViewModel
@@ -29,7 +29,16 @@ class PODFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.pod_fragment, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        input_layout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
+            })
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
