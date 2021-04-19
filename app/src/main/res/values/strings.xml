@@ -5,4 +5,5 @@
     <string name="wiki_helper_text">You can find unknown thing in Wikipedia</string>
     <string name="description_header">description header</string>
     <string name="description">description</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
