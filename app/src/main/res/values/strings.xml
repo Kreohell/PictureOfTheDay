@@ -6,4 +6,5 @@
     <string name="description_header">description header</string>
     <string name="description">description</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="settings">Settings</string>
 </resources>
