@@ -61,7 +61,11 @@ class PODFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
-            R.id.app_bar_settings -> activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
+            R.id.app_bar_settings -> activity?.
+            supportFragmentManager?.
+            beginTransaction()?.
+            replace(R.id.container, SettingsFragment())?.
+            addToBackStack(null)?.commit()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -109,7 +113,7 @@ class PODFragment : Fragment() {
 
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
-//        bottomSheetBehavior.isHideable = false
+        bottomSheetBehavior.isHideable = false
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
 
