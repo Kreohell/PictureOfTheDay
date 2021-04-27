@@ -7,4 +7,18 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimaryMoon">#7575a3</color>
+    <color name="colorPrimaryVariantMoon">#47476b</color>
+    <color name="colorOnPrimaryMoon">#c2c2d6</color>
+    <color name="colorSecondaryMoon">#a3a3c2</color>
+    <color name="colorSecondaryVariantMoon">#666699</color>
+    <color name="colorOnSecondaryMoon">#e0e0eb</color>
+
+    <color name="colorPrimaryGrass">#33cc33</color>
+    <color name="colorPrimaryVariantGrass">#1f7a1f</color>
+    <color name="colorOnPrimaryGrass">#c2f0c2</color>
+    <color name="colorSecondaryGrass">#85e085</color>
+    <color name="colorSecondaryVariantGrass">#47d147</color>
+    <color name="colorOnSecondaryGrass">#c2f0c2</color>
 </resources>
