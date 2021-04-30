@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PictureOfTheDay</string>
+    <string name="photo_of_the_day_stub">photo_of_the_day_stub</string>
+    <string name="search_wiki">Search in Wiki</string>
+    <string name="wiki_helper_text">You can find unknown thing in Wikipedia</string>
+    <string name="description_header">description header</string>
+    <string name="description">description</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
