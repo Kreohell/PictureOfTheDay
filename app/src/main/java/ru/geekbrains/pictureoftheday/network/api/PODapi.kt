@@ -7,5 +7,6 @@ import ru.geekbrains.pictureoftheday.network.response.PODServerResponseData
 
 interface PODapi {
     @GET("planetary/apod")
-    fun getPictureOfTheDay(@Query("api_key") apiKey: String): Call<PODServerResponseData>
+    fun getPictureOfTheDay(@Query("api_key") apiKey: String,
+                           @Query("date") date: String): Call<PODServerResponseData>
 }

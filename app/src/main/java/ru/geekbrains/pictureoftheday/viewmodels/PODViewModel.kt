@@ -16,18 +16,18 @@ class PODViewModel(
     private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()
 ) : ViewModel() {
 
-    fun getData(): LiveData<PODData> {
-        sendServerRequest()
+    fun getData(date: String): LiveData<PODData> {
+        sendServerRequest(date)
         return liveDataForViewToObserve
     }
 
-    private fun sendServerRequest() {
+    private fun sendServerRequest(date: String) {
         liveDataForViewToObserve.value = PODData.Loading(null)
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
             PODData.Error(Throwable("You need API key"))
         } else {
-            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(apiKey).enqueue(object :
+            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(apiKey, date).enqueue(object :
                 Callback<PODServerResponseData> {
                 override fun onResponse(
                     call: Call<PODServerResponseData>,

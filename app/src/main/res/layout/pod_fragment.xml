@@ -28,7 +28,7 @@
           app:endIconDrawable="@drawable/ic_baseline_search_24"
           app:endIconMode="custom"
           app:helperText="@string/wiki_helper_text"
-          app:layout_constraintBottom_toTopOf="@+id/image_view"
+          app:layout_constraintBottom_toTopOf="@+id/view_pager"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent">
 
@@ -39,18 +39,14 @@
             android:inputType="text" />
       </com.google.android.material.textfield.TextInputLayout>
 
-      <ru.geekbrains.pictureoftheday.utils.EquilateralImageView
-          android:id="@+id/image_view"
+      <androidx.viewpager.widget.ViewPager
+          android:id="@+id/view_pager"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:scaleType="fitCenter"
-          android:contentDescription="@string/photo_of_the_day_stub"
+          android:layout_height="400dp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:srcCompat="@drawable/ic_baseline_block_24"/>
+          app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
 
