@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextInputLayoutForWiki" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">@dimen/text_input_wiki_layout_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:hint">@string/search_wiki</item>
+        <item name="helperText">@string/wiki_helper_text</item>
+        <item name="counterEnabled">true</item>
+        <item name="endIconMode">custom</item>
+        <item name="endIconDrawable">@drawable/ic_baseline_search_24</item>
+        <item name="counterMaxLength">30</item>
+    </style>
+</resources>
