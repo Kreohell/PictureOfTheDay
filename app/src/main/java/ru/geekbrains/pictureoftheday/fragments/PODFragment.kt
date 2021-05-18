@@ -4,12 +4,16 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.ArcMotion
+import androidx.transition.ChangeBounds
+import androidx.transition.TransitionManager
 import androidx.viewpager.widget.ViewPager
 import coil.api.load
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -30,7 +34,8 @@ class PODFragment : Fragment() {
     }
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
-//    private lateinit var textDate: TextView
+    private lateinit var textDate: TextView
+    private var animationPosition = 2
 
     private val viewModel: PODViewModel by lazy {
         ViewModelProvider(this).get(PODViewModel::class.java)
@@ -52,7 +57,7 @@ class PODFragment : Fragment() {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
             })
         }
-
+        textDate = view.findViewById(R.id.text_view_date)
         setBottomAppBar(view)
     }
 
@@ -66,19 +71,41 @@ class PODFragment : Fragment() {
         view_pager.addOnPageChangeListener(object  : ViewPager.OnPageChangeListener {
             override fun onPageSelected(position: Int) {
                 when(position) {
-                    0 -> date = currentData.theDayBeforeYesterday
-                    1 -> date = currentData.yesterday
-                    2 -> date = currentData.today
+                    0 -> {
+                        date = currentData.theDayBeforeYesterday
+                        animationPosition = 0
+                    }
+                    1 -> {
+                        date = currentData.yesterday
+                        animationPosition = 1
+                    }
+                    2 -> {
+                        date = currentData.today
+                        animationPosition = 2
+                    }
                 }
                 viewModel.getData(date).observe(viewLifecycleOwner,  { renderData(it) })
-//                textDate.text = date
+                textDate.text = date
+
+                val changeBounds = ChangeBounds()
+                changeBounds.setPathMotion(ArcMotion())
+                changeBounds.duration = 500
+                TransitionManager.beginDelayedTransition(animation, changeBounds)
+                val params = textDate.layoutParams as FrameLayout.LayoutParams
+                params.gravity = when(animationPosition) {
+                    0 -> Gravity.START
+                    1 -> Gravity.CENTER
+                    2 -> Gravity.END
+                    else -> Gravity.END
+                }
+                textDate.layoutParams = params
             }
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
             override fun onPageScrollStateChanged(state: Int) {}
         })
         viewModel.getData(date).observe(viewLifecycleOwner, { renderData(it) })
-//        textDate.text = date
+        textDate.text = date
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
