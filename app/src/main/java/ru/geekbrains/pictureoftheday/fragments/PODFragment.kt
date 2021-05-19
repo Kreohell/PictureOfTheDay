@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.pod_info_layout.*
 import ru.geekbrains.pictureoftheday.R
 import ru.geekbrains.pictureoftheday.activities.MainActivity
 import ru.geekbrains.pictureoftheday.network.data.PODData
+import ru.geekbrains.pictureoftheday.recyclerview.RecyclerFragment
 import ru.geekbrains.pictureoftheday.viewmodels.PODViewModel
 import ru.geekbrains.pictureoftheday.viewpager.Date
 import ru.geekbrains.pictureoftheday.viewpager.ViewPagerAdapter
@@ -115,10 +116,17 @@ class PODFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
+
             R.id.app_bar_settings -> activity?.
             supportFragmentManager?.
             beginTransaction()?.
             replace(R.id.container, SettingsFragment.newInstance())?.
+            addToBackStack(null)?.commit()
+
+            R.id.app_bar_notes -> activity?.
+            supportFragmentManager?.
+            beginTransaction()?.
+            replace(R.id.container, RecyclerFragment.newInstance())?.
             addToBackStack(null)?.commit()
         }
         return super.onOptionsItemSelected(item)

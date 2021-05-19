@@ -10,4 +10,6 @@
     <string name="moon">Moon</string>
     <string name="grass">Grass</string>
     <string name="text_example">TextExample</string>
+    <string name="notes">Notes</string>
+    <string name="text">text</string>
 </resources>
